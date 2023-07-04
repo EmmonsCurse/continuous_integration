@@ -47,6 +47,7 @@ def inference_EfficientNetB0(img, model_path, params_path):
                                   False,  # use_static
                                   False,  # use_calib_mode
                                   )
+    config.delete_pass("conv_elementwise_add_fuse_pass")
     predictor = create_predictor(config)
     input_names = predictor.get_input_names()
 
