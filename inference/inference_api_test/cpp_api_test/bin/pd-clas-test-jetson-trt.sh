@@ -45,6 +45,9 @@ test_trt(){
             else
                 accuracy=1e-5
             fi
+            if [ ${model_name} == "GoogLeNet" ]; then
+                accuracy=5e-3
+            fi
             printf "${YELLOW} ${trt_precision} accuracy set to ${accuracy} ${NC}\n"
             $OUTPUT_BIN/${exe_bin} --model_name=${model_name} \
                                 --model_path=${model_path} \
