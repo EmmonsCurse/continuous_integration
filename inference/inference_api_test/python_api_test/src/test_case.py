@@ -94,6 +94,7 @@ class DeployConfig(object):
             predictor_config.disable_gpu()
             try:
                 predictor_config.disable_mkldnn()
+                predictor_config.enable_new_executor()
             except AttributeError:
                 pass
         elif config_type == 'cpu_no_ir':
@@ -111,6 +112,7 @@ class DeployConfig(object):
             predictor_config.set_cpu_math_library_num_threads(4)
         elif config_type == 'gpu':
             predictor_config.enable_use_gpu(100, 0)
+            predictor_config.enable_new_executor()
         elif config_type == 'gpu_no_ir':
             predictor_config.enable_use_gpu(100, 0)
             predictor_config.switch_ir_optim(False)
@@ -119,6 +121,7 @@ class DeployConfig(object):
             predictor_config.enable_lite_engine()
         elif config_type in trt_precision_map.keys():
             predictor_config.enable_use_gpu(100, 0)
+            predictor_config.enable_new_executor()
             predictor_config.enable_tensorrt_engine(
                 workspace_size=1 << 30,
                 max_batch_size=self.batch_size,
