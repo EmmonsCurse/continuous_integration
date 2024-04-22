@@ -180,8 +180,6 @@ class DeployConfig(object):
                 'fraction_of_gpu_memory_for_pool'] = predictor_config.fraction_of_gpu_memory_for_pool(
                 )
             summary_info['gpu_device_id'] = predictor_config.gpu_device_id()
-            summary_info[
-                'lite_engine_enabled'] = predictor_config.lite_engine_enabled()
             summary_info['mkldnn_enabled'] = predictor_config.mkldnn_enabled()
             summary_info[
                 'tensorrt_engine_enabled'] = predictor_config.tensorrt_engine_enabled(
