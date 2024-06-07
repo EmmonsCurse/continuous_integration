@@ -68,7 +68,7 @@ if(WITH_MKL)
   include_directories("${MATH_LIB_PATH}/include")
   set(MATH_LIB ${MATH_LIB_PATH}/lib/libmklml_intel${CMAKE_SHARED_LIBRARY_SUFFIX}
                  ${MATH_LIB_PATH}/lib/libiomp5${CMAKE_SHARED_LIBRARY_SUFFIX})
-  set(MKLDNN_PATH "${PADDLE_LIB_THIRD_PARTY_PATH}mkldnn")
+  set(MKLDNN_PATH "${PADDLE_LIB_THIRD_PARTY_PATH}onednn")
   if(EXISTS ${MKLDNN_PATH})
     include_directories("${MKLDNN_PATH}/include")
     set(MKLDNN_LIB ${MKLDNN_PATH}/lib/libdnnl.so.3)
